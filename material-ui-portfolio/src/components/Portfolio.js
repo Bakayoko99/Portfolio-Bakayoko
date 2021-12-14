@@ -74,7 +74,7 @@ const projects = [
     effectuees. Il'ya egalement une interface Agent pour regler les payements\
     puis l'interface Admin.`,
     image: project2,
-    code_source: ''
+    code_source: 'https://github.com/Bakayoko99/TaxCommune_web-app'
   },
   {
     name: "Project 3",
@@ -83,7 +83,7 @@ const projects = [
     des troubles, la page outils, la page transcription pour\
     retranscrire les documents et la page contact.`,
     image: project3,
-    code_source: ''
+    code_source: 'https://github.com/Bakayoko99/dys-help_web-app'
   },
   {
     name: "Project 4",
