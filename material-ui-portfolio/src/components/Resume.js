@@ -218,10 +218,9 @@ const Resume = () => {
             align="center"
             className={classes.subtitle1}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas
-            ipsa, laudantium totam perferendis possimus voluptatibus tenetur.
-            Quasi voluptatibus, nam vitae eaque ad, officia laboriosam
-            repudiandae, rerum necessitatibus nisi mollitia.
+            Stage de programmation industrielle, dépanage des machines,
+            alésage, filetage des pièces et controle qualité
+            de la production.
           </Typography>
         </Box>
       </Box>
