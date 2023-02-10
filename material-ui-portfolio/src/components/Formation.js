@@ -114,14 +114,14 @@ const Formation = () => {
     return (
         <Box component="header" className={classes.mainContainer}>
             <Typography variant="h4" align="center" className={classes.heading}>
-                Formation
+                Formations
             </Typography>
             <Box component="div" className={classes.timeLine}>
                 <Typography
                     variant="h2"
                     className={`${classes.timeLineYear} ${classes.timeLineItem}`}
                 >
-                    2022 2021
+                    2023 2021
                 </Typography>
                 <Box component="div" className={classes.timeLineItem}>
                     <Typography
@@ -129,19 +129,19 @@ const Formation = () => {
                         align="center"
                         className={classes.subHeading}
                     >
-                        Bachelor dèveloppeur
-                        informatique
+                        Bac+4 développeur
+                        Fullstack
                     </Typography>
                     <Typography variant="body1" align="center" className={classes.body1}>
-                        Epsi
+                        Cloud Campus
                     </Typography>
                     <Typography
                         variant="subtitle1"
                         align="center"
                         className={classes.subtitle1}
                     >
-                        EPSI école d'ingénierie informatique,
-                        formation spécialisant en développement informatique
+                        Cloud Campus, formation diplômant
+                        Bac+4 développeur full stack en 24 mois
                     </Typography>
                 </Box>
                 <Typography

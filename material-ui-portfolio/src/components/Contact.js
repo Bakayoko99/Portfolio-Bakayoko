@@ -92,17 +92,17 @@ const Contact = () => {
         });
 
     }
-    window.alert('Email sent!')
+    alert('Email sent!')
     window.location.reload();
 
   }
 
   return (
     <Box component="div" className={classes.contactContainer}>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         <Box component="form" className={classes.form}>
           <Typography variant="h5" className={classes.heading}>
-            Embaucher ou Me contacter...
+            Contactez-moi !
           </Typography>
           <InputField
             fullWidth={true}
@@ -142,7 +142,7 @@ const Contact = () => {
             className={classes.button}
             onClick={sendEmail}
           >
-            Contact Moi
+            Envoyer
           </Button>
         </Box>
       </Grid>

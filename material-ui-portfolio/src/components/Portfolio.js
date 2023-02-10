@@ -1,5 +1,5 @@
 import * as React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 // useTheme
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
@@ -9,20 +9,27 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-// import Paper from "@material-ui/core/Paper";
+import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-// import Modal from "@material-ui/core/Modal";
-// import MobileStepper from "@material-ui/core/MobileStepper";
-// import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
-// import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-// import SwipeableViews from 'react-swipeable-views';
-// import { autoPlay } from 'react-swipeable-views-utils';
+import Modal from "@material-ui/core/Modal";
+import MobileStepper from "@material-ui/core/MobileStepper";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+import ScreenRotation from "@material-ui/icons/ScreenRotation";
+
+import project1 from "../images/projectsImages/chatbox-image.png";
+import project2 from "../images/projectsImages/TaxCommun-image.png";
+import project3 from "../images/projectsImages/dys-help-image.png";
+import project4 from "../images/projectsImages/VCS-app-image.png";
+
+import P1site_images from "../images/projectsImages/chatboxImages/chatboxImages.js";
+import P2site_images from "../images/projectsImages/taxCImages/taxCImages.js";
+import P3site_images from "../images/projectsImages/dysImages/dysHelpImages.js";
+import P4site_images from "../images/projectsImages/vcsImages/vcsImages.js";
 
 
-import project1 from "../images/chatbox-image.png";
-import project2 from "../images/TaxCommun-image.png";
-import project3 from "../images/dys-help-image.png";
-import project4 from "../images/VCS-app-image.png";
 
 const useStyles = makeStyles((theme) => ({
   mainContainer: {
@@ -33,28 +40,69 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     margin: "3rem auto",
   },
-  // modalStyle: {
-  //   position: 'absolute',
-  //   top: '50%',
-  //   left: '50%',
-  //   transform: 'translate(-50%, -50%)',
-  //   width: 400,
-  //   bgcolor: 'background.paper',
-  //   border: '2px solid #000',
-  //   boxShadow: 24,
-  //   p: 4,
-  // },
-  // swipeableBox: {
-  //   width: '400px',
-  //   position: 'absolute',
-  //   top: '50%',
-  //   left: '50%',
-  //   transform: 'translate(-50%, -50%)',
-  //   bgcolor: 'background.paper',
-  //   border: '2px solid #000',
-  //   boxShadow: 24,
-  //   p: 4,
-  // }
+  modalStyle: {
+    width: 400,
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    backgroundColor: 'rgba(255, 255, 255,)',
+    '@media (max-height: 400px)': { alignItems: 'center', justifyContent: 'center', },
+
+
+  },
+  swipeableBox: {
+    alignItems: 'center',
+    width: '800px',
+    '@media (max-width: 800px)': { width: '90%' },
+    '@media (max-height: 420px)': { width: '80%' },
+    position: 'relative',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  },
+  swipeapbleIMG: {
+    '@media (max-height: 420px)': { height: '300px' },
+    '@media (max-height: 300px)': { height: '260px' },
+    width: '100%',
+    height: '450px',
+  },
+  stepper: {
+    '@media (max-height: 420px)': { height: '0', padding: '0' },
+
+  },
+  swipeableBtn: {
+    '@media (max-height: 420px)': { visibility: 'hidden' },
+
+  },
+  screenRotationBox: {
+    position: 'relative',
+    animation: "$rotation 4s ",
+
+  },
+  '@keyframes rotation': {
+    "0%": { transform: 'rotate(-45deg)' },
+    "25%": { transform: 'rotate(90deg)' },
+    "50%": { transform: 'rotate(-45deg)' },
+    "100%": { transform: 'rotate(0)' },
+  },
+
+  screenRotationMain: {
+    height: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  imgNameModal: {
+    textAlign: "center",
+    color: 'tomato',
+    backgroundColor: 'rgb(34 51 51)',
+    fontWeight: 'bold',
+  }
 }));
 
 const projects = [
@@ -65,7 +113,8 @@ const projects = [
     envoyer, recevoir des messages de la part des utilisateur inscrit\
     et aussi de creer des groupe de conversation!`,
     image: project1,
-    code_source: 'https://github.com/Bakayoko99/chatbox_web-app'
+    code_source: 'https://github.com/Bakayoko99/chatbox_web-app',
+    site_images: P1site_images()
   },
   {
     name: "Project 2",
@@ -74,7 +123,8 @@ const projects = [
     effectuees. Il'ya egalement une interface Agent pour regler les payements\
     puis l'interface Admin.`,
     image: project2,
-    code_source: 'https://github.com/Bakayoko99/TaxCommune_web-app'
+    code_source: 'https://github.com/Bakayoko99/TaxCommune_web-app',
+    site_images: P2site_images()
   },
   {
     name: "Project 3",
@@ -83,7 +133,9 @@ const projects = [
     des troubles, la page outils, la page transcription pour\
     retranscrire les documents et la page contact.`,
     image: project3,
-    code_source: 'https://github.com/Bakayoko99/dys-help_web-app'
+    code_source: 'https://github.com/Bakayoko99/dys-help_web-app',
+    site_images: P3site_images()
+    
   },
   {
     name: "Project 4",
@@ -92,82 +144,101 @@ const projects = [
     l'incerface d'utilisateur, \
     Telesurveillance, Action d'urgence et Outils connectées.`,
     image: project4,
-    code_source: 'https://github.com/Bakayoko99/VCS-app'
+    code_source: 'https://github.com/Bakayoko99/VCS-app',
+    site_images: P4site_images()
   },
 ];
 
-//  Swipeable
+// Swipeable
 
-// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-// const images = [
-//   {
-//     label: 'San Francisco – Oakland Bay Bridge, United States',
-//     imgPath:
-//       project1,
-//   },
-//   {
-//     label: 'Bird',
-//     imgPath:
-//       'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-//   },
-//   {
-//     label: 'Bali, Indonesia',
-//     imgPath:
-//       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
-//   },
-//   {
-//     label: 'Goč, Serbia',
-//     imgPath:
-//       'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-//   },
-// ];
 
-//
 
 const Portfolio = () => {
 
   const classes = useStyles();
+  const theme = useTheme();
+
+  const [open, setOpen] = React.useState(false);
+  const [projectIMG, setProjectIMG] = React.useState([]);
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [openScreenR, setOpenScreenR] = React.useState(false);
+
+
 
   // Modal
 
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // screen rotation modal
+
+
+  const handleScreenROpen = () => setOpenScreenR(true);
+  const handleScreenRClose = () => setOpenScreenR(false);
+
+
+
+
+
+  // swipeable images
+
+
+  const imageDemo = images => {
+
+    if (window.matchMedia("(max-width: 620px)").matches) {
+
+      handleScreenROpen()
+
+
+    } else {
+
+      handleOpen()
+    }
+
+
+    setProjectIMG(images)
+
+    setActiveStep(0)
+
+  }
 
 
   // Swipeable
 
-  // const theme = useTheme();
-  // const [activeStep, setActiveStep] = React.useState(0);
-  // const maxSteps = images.length;
 
-  // const handleNext = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  // };
+  const maxSteps = projectIMG.length;
 
-  // const handleBack = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  // };
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
 
-  // const handleStepChange = (step) => {
-  //   setActiveStep(step);
-  // };
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
-  //
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
 
-  // const imageDemo = (name) => {
+  // swipeable label
 
-    
+  const label = () => {
 
+    if (projectIMG.length !== 0) {
 
+      return projectIMG[activeStep].label.toUpperCase();
 
-  // }
+    } else {
+      return []
+    }
 
+  }
 
   return (
     <Box component="div" className={classes.mainContainer}>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         {/* Projects */}
         {projects.map((project, i) => (
           <Grid item xs={12} sm={8} md={4} key={i}>
@@ -192,21 +263,25 @@ const Portfolio = () => {
                 <Button size="small" color="primary" target="_blank" href={project.code_source}>
                   Code source
                 </Button>
-                {/* <Button onClick={handleOpen, imageDemo(project.name)} size="small" color="primary">
+
+                <Button onClick={() => imageDemo(project.site_images)} size="small" color="primary">
                   Images Demo
-                </Button> */}
+                </Button>
+
               </CardActions>
             </Card>
           </Grid>
         ))}
       </Grid>
-      {/* <Modal
+      <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        // className={classes.modalStyle}
+      // className={classes.modalStyle}
       >
+
+        {/* <div>ciaooooo</div> */}
         <Box className={classes.swipeableBox}>
           <Paper
             square
@@ -214,12 +289,12 @@ const Portfolio = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              height: 50,
+              height: 800,
               pl: 2,
               bgcolor: 'background.default',
             }}
           >
-            <Typography>{images[activeStep].label}</Typography>
+            <Typography className={classes.imgNameModal}>{label()}</Typography>
           </Paper>
           <AutoPlaySwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -227,31 +302,33 @@ const Portfolio = () => {
             onChangeIndex={handleStepChange}
             enableMouseEvents
           >
-            {images.map((step, index) => (
-              <div key={step.label}>
+            {projectIMG.map((step, index) => (
+              <div key={step.label} >
                 {Math.abs(activeStep - index) <= 2 ? (
                   <Box
                     component="img"
+                    className={classes.swipeapbleIMG}
                     sx={{
-                      height: 255,
                       display: 'block',
-                      maxWidth: 400,
                       overflow: 'hidden',
                       width: '100%',
                     }}
                     src={step.imgPath}
                     alt={step.label}
                   />
+
                 ) : null}
               </div>
             ))}
           </AutoPlaySwipeableViews>
           <MobileStepper
+            className={classes.stepper}
             steps={maxSteps}
             position="static"
             activeStep={activeStep}
             nextButton={
               <Button
+                className={classes.swipeableBtn}
                 size="small"
                 onClick={handleNext}
                 disabled={activeStep === maxSteps - 1}
@@ -265,7 +342,7 @@ const Portfolio = () => {
               </Button>
             }
             backButton={
-              <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+              <Button className={classes.swipeableBtn} size="small" onClick={handleBack} disabled={activeStep === 0}>
                 {theme.direction === 'rtl' ? (
                   <KeyboardArrowRight />
                 ) : (
@@ -276,7 +353,20 @@ const Portfolio = () => {
             }
           />
         </Box>
-      </Modal> */}
+      </Modal>
+      <Modal
+        open={openScreenR}
+        onClose={handleScreenRClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+
+      >
+        <Box onClick={handleScreenRClose} className={classes.screenRotationMain}>
+          <Box className={classes.screenRotationBox}>
+            <ScreenRotation style={{ height: '100px', width: '100px', color: 'tomato', }} />
+          </Box>
+        </Box>
+      </Modal>
     </Box>
   );
 };
