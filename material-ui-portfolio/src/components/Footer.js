@@ -26,9 +26,9 @@ const Footer = () => {
   const classes = useStyles();
 
   return (
-    <BottomNavigation className={classes.bottomNavContainer}>
-      <Link target="_blank" href="#"> <BottomNavigationAction icon={<GitHub />} className={classes.root} /></Link>
-      <Link target="_blank" href="https://github.com/Bakayoko99"> <BottomNavigationAction icon={<Facebook />} className={classes.root} /></Link>
+    <BottomNavigation showlabel ="true" className={classes.bottomNavContainer}>
+      <Link target="_blank" href="https://github.com/Bakayoko99"> <BottomNavigationAction icon={<GitHub />} className={classes.root} /></Link>
+      <Link target="_blank" href="#"> <BottomNavigationAction icon={<Facebook />} className={classes.root} /></Link>
       <Link target="_blank" href="https://www.linkedin.com/in/bakagnan-bakayoko-034a7b18a/"> <BottomNavigationAction icon={<LinkedIn />} className={classes.root} /></Link>
     </BottomNavigation>
   );

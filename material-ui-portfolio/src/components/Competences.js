@@ -26,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         color: 'tomato'
     },
+    heading: {
+        color: "tomato",
+        padding: "3rem 0",
+        textTransform: "uppercase",
+    },
 
 }));
 
@@ -90,7 +95,10 @@ const Competences = () => {
 
     return (
         <Box component="div" className={classes.mainContainer}>
-            <Grid container justify="center">
+            <Typography variant="h4" align="center" className={classes.heading}>
+                Compétences
+            </Typography>
+            <Grid container justifyContent="center">
                 {/* languages */}
                 {languages.map((languages, i) => (
                     <Grid item xs={12} sm={8} md={4} key={i}>

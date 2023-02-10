@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from 'emailjs-com';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
@@ -62,30 +63,72 @@ const InputField = withStyles({
 })(TextField);
 
 const Contact = () => {
+
   const classes = useStyles();
+
+  const [formName, setFormName] = useState('')
+  const [formMessage, setFormMessage] = useState('')
+  const [formEmail, setFormEmail] = useState('')
+
+  const sendEmail = (event) => {
+    event.preventDefault();
+
+    if (formEmail === '' || formMessage === '' || formName === '') {
+
+      window.alert('All fields are required.')
+      window.location.reload();
+
+    } else {
+
+      emailjs.send('service_fhvphpd', 'template_oty3k4z', {
+        from_name: formName,
+        message: formMessage,
+        email: formEmail
+      }, 'user_xxoeEUzppUfPrFlGcOgaW')
+        .then((result) => {
+          console.log(result.text);
+        }, (error) => {
+          console.log(error.text);
+        });
+
+    }
+    alert('Email sent!')
+    window.location.reload();
+
+  }
+
   return (
     <Box component="div" className={classes.contactContainer}>
-      <Grid container justify="center">
+      <Grid container justifyContent="center">
         <Box component="form" className={classes.form}>
           <Typography variant="h5" className={classes.heading}>
-            Embaucher ou Me contacter...
+            Contactez-moi !
           </Typography>
           <InputField
             fullWidth={true}
+            onChange={(e) => setFormName(e.target.value)}
             label="Nom"
+            type="text"
+            name="from_name"
             variant="outlined"
             inputProps={{ className: classes.input }}
           />
           <InputField
             fullWidth={true}
+            onChange={(e) => setFormEmail(e.target.value)}
             label="Email"
+            type="email"
+            name="email"
             variant="outlined"
             inputProps={{ className: classes.input }}
             className={classes.field}
           />
           <InputField
             fullWidth={true}
+            onChange={(e) => setFormMessage(e.target.value)}
             label="Message"
+            type="text"
+            name="message"
             variant="outlined"
             multiline
             rows={4}
@@ -93,11 +136,13 @@ const Contact = () => {
           />
           <Button
             variant="outlined"
+            type="submit"
             fullWidth={true}
             endIcon={<Send />}
             className={classes.button}
+            onClick={sendEmail}
           >
-            Contact Moi
+            Envoyer
           </Button>
         </Box>
       </Grid>

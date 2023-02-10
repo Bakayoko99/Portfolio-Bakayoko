@@ -53,8 +53,8 @@ const useStyles = makeStyles((theme) => ({
 
 const menuItems = [
   { listIcon: <Home />, listText: "Home", listPath: "/" },
-  { listIcon: <School />, listText: "Formation", listPath: "/formation" },
-  { listIcon: <Work />, listText: "Expérience pro", listPath: "/resume" },
+  { listIcon: <School />, listText: "Formations", listPath: "/formation" },
+  { listIcon: <Work />, listText: "Expériences pro", listPath: "/resume" },
   { listIcon: <Star />, listText: "Compétences", listPath: "/competences" },
   { listIcon: <Apps />, listText: "Portfolio", listPath: "/portfolio" },
   { listIcon: <ContactMail />, listText: "Contact", listPath: "/contact" },
@@ -98,7 +98,7 @@ const Navbar = () => {
               <Menu className={classes.menuBtn} />
             </IconButton>
             <Typography variant="h5" className={classes.title}>
-              Bakayoko
+              Menu
             </Typography>
           </Toolbar>
         </AppBar>

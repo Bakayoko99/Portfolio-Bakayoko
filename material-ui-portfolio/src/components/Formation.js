@@ -114,14 +114,14 @@ const Formation = () => {
     return (
         <Box component="header" className={classes.mainContainer}>
             <Typography variant="h4" align="center" className={classes.heading}>
-                Formation
+                Formations
             </Typography>
             <Box component="div" className={classes.timeLine}>
                 <Typography
                     variant="h2"
                     className={`${classes.timeLineYear} ${classes.timeLineItem}`}
                 >
-                    2022 2021
+                    2023 2021
                 </Typography>
                 <Box component="div" className={classes.timeLineItem}>
                     <Typography
@@ -129,20 +129,19 @@ const Formation = () => {
                         align="center"
                         className={classes.subHeading}
                     >
-                        Bachelor dèveloppeur
-                        informatique
+                        Bac+4 développeur
+                        Fullstack
                     </Typography>
                     <Typography variant="body1" align="center" className={classes.body1}>
-                        Epsi
+                        Cloud Campus
                     </Typography>
                     <Typography
                         variant="subtitle1"
                         align="center"
                         className={classes.subtitle1}
                     >
-                        Projet d'equipe - Developpement d'une
-                        application web en React (JavaScript, HTML et
-                        CSS) et un serveur en Node.JS
+                        Cloud Campus, formation diplômant
+                        Bac+4 développeur full stack en 24 mois
                     </Typography>
                 </Box>
                 <Typography
@@ -167,9 +166,9 @@ const Formation = () => {
                         align="center"
                         className={classes.subtitle1}
                     >
-                        Projet d'equipe - Developpement d'une
-                        application web en React (JavaScript, HTML et
-                        CSS) et un serveur en Node.JS
+                        Formation qui s'équilibre entre l'apprentissage
+                        des compétences techniques de code les plus demandées du marché
+                        et l'apprentissage de compétences professionnelles relationnelles.
                     </Typography>
                 </Box>
                 <Typography
@@ -220,8 +219,8 @@ const Formation = () => {
                         align="center"
                         className={classes.subtitle1}
                     >
-                        Technicien de maintenance - Manutention
-                        régulières des Tram-trains
+                        Bac  professionnelle maintenance d'équipements
+                        industriels
                     </Typography>
                 </Box>
                 <Typography
@@ -246,10 +245,9 @@ const Formation = () => {
                         align="center"
                         className={classes.subtitle1}
                     >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quas
-                        ipsa, laudantium totam perferendis possimus voluptatibus tenetur.
-                        Quasi voluptatibus, nam vitae eaque ad, officia laboriosam
-                        repudiandae, rerum necessitatibus nisi mollitia.
+                        Lycée professionel de programmation industrielle et
+                        de dessin technique :
+                        CNC, Ladder, Autocad
                     </Typography>
                 </Box>
             </Box>
